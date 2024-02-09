@@ -2,7 +2,10 @@ interface LoginInput {
   email: string;
   password: string;
 }
-interface LoginOutput {}
+interface LoginOutput {
+  email: string;
+  token: string;
+}
 
 interface SignupInput {
   firstname: string;
