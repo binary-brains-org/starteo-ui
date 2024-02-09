@@ -9,7 +9,7 @@ interface SignupInput {
   lastname: string;
   email: string;
   password: string;
-  image?: FileList
+  image?: FileList;
 }
 interface SignupOutput {}
 
