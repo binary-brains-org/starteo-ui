@@ -10,6 +10,17 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { IconButton } from '@mui/material';
+import { AccountCircle } from '@mui/icons-material';
+
+interface propsType{
+
+}
+
+export interface DrowerType extends React.FC<propsType>{
+  
+}
+
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState(false);
@@ -65,7 +76,16 @@ export default function TemporaryDrawer() {
   return (
     <div>
       <React.Fragment>
-        <Button onClick={toggleDrawer(true)}>open</Button>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="menu-appbar"
+          aria-haspopup="true"
+          onClick={toggleDrawer(true)}
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
         <Drawer anchor={'right'} open={state} onClose={toggleDrawer(false)}>
           {list()}
         </Drawer>
