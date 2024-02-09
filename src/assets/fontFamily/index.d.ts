@@ -6,6 +6,7 @@ interface FontFamily {
   Quicksand: string[];
   Sixtyfour: string[];
   'sans-serif': string[];
+  Pacifico: string[];
 }
 
 const MakeFamily: FontFamily;
