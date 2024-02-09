@@ -17,4 +17,3 @@ const CarouselWithData = () => {
 };
 
 export default CarouselWithData;
-
