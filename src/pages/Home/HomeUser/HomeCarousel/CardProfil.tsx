@@ -1,5 +1,4 @@
-import { Box, Button } from '@mui/material';
-import { ViewArraySharp } from '@mui/icons-material';
+import { Box } from '@mui/material';
 import Information from './Information';
 
 interface ItemData {
@@ -26,14 +25,6 @@ const CardProfil = ({ item: { description } }: Props) => {
         </Box>
         <Box className="gap-1 flex flex-row justify-between">
           <Information />
-          <Button
-            color="info"
-            variant="contained"
-            className="hover:bg-sky-700 text-gray-50 rounded-md"
-          >
-            View more
-            <ViewArraySharp />
-          </Button>
         </Box>
       </Box>
     </Box>
@@ -41,4 +32,3 @@ const CardProfil = ({ item: { description } }: Props) => {
 };
 export { type ItemData };
 export default CardProfil;
-
