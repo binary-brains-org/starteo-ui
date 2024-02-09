@@ -10,11 +10,11 @@ import fetcher from './fetcher';
 
 class AuthMethod {
   public async login(data: LoginInput): Promise<LoginOutput> {
-    return (await fetcher.post('/login', data)).data;
+    return (await fetcher.post('/auth/login', data)).data;
   }
   public async signup(data: SignupInput): Promise<SignupOutput> {
     return (
-      await fetcher.post('/signup', data, {
+      await fetcher.post('/auth/signup', data, {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
     ).data;
