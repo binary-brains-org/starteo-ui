@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
-const baseURL: string = import.meta.env.VITE_BASE_URL || ""; // TODO: change it
+const baseURL: string = process.env.VITE_BASE_URL || ''; // TODO: change it
 
 const fetcher: AxiosInstance = axios.create({
   baseURL,

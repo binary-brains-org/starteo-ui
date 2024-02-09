@@ -12,7 +12,7 @@ const useStatePromise = <T>(
   const [error, setError] = useState<Error | null>(null);
 
   useLayoutEffect(() => {
-    if(firstRender){
+    if (firstRender) {
       setFirstRender(false);
       if (initialState instanceof Promise) {
         initialState.then((v) => setState(v)).catch(setError);
