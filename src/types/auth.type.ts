@@ -8,8 +8,9 @@ interface SignupInput {
   firstname: string;
   lastname: string;
   email: string;
+  username: string;
   password: string;
-  image?: FileList
+  image?: FileList;
 }
 interface SignupOutput {}
 
