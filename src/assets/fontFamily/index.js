@@ -4,6 +4,7 @@ const fontFamily = [
   'Roboto', // modern font
   'Quicksand', // rounded font
   'Sixtyfour', // trailing big font
+  'Pacifico',
   'sans-serif', // fallback font
 ];
 
