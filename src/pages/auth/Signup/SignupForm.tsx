@@ -20,7 +20,8 @@ const SignupForm = () => {
 
   const handleDone = async (data: SignupInput) => {
     try {
-      const res = await auth.signup(data);
+      const { image, ...d } = data;
+      const res = await auth.signup(d);
       handleResponseSignup(res);
     } catch (e) {
       setErrorPopup(e as Error);
