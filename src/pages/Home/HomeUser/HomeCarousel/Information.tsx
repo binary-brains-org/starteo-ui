@@ -20,12 +20,12 @@ function Information() {
   return (
     <div>
       <Button
-        className="justify-center p-6"
+        className="justify-center w-100"
         variant="contained"
         color="secondary"
         onClick={handleOpen}
       >
-        Buy
+        View more
         <ViewArray />
       </Button>
       <Dialog open={open} onClose={handleClose}>
@@ -53,4 +53,3 @@ function Information() {
   );
 }
 export default Information;
-
