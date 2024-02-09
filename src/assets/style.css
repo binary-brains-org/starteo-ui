@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .full-view {
+    @apply w-full h-full;
+  }
+
+  .full-screen {
+    @apply w-screen h-screen;
+  }
+
+  .flex-all-center,
+  .center-flex {
+    @apply flex items-center justify-center;
+  }
+
+  .display-none {
+    @apply hidden;
+  }
+}
