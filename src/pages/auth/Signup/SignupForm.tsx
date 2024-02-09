@@ -6,23 +6,33 @@ import EndForm from './EndForm';
 import auth from '@/services/auth';
 import { useErrorPopup } from '@/hooks';
 import { Steps } from '@/components';
-import { SignupInput } from '@/types';
+import { SignupInput, SignupOutput } from '@/types';
+import Token from '@/core/token';
+import pageRoutes from '@/pages/@pageRoutes';
+import { useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
+  const nav = useNavigate();
   const [nodeError, setErrorPopup] = useErrorPopup();
   const form = useForm<SignupInput>();
   const [step, setStep] = useState<0 | 1 | 2>(0);
 
-  const handleResponseSignup = (response: object) => {
-    // TODO: handle response data
-    console.log(response);
+  const handleResponseSignup = (data: SignupInput, response: SignupOutput) => {
+    auth
+      .login({ email: response.email, password: data.password })
+      .then((v) => {
+        Token.set(v.token);
+      })
+      .then(() => {
+        nav(pageRoutes.home);
+      });
   };
 
   const handleDone = async (data: SignupInput) => {
     try {
       const { image, ...d } = data;
       const res = await auth.signup(d);
-      handleResponseSignup(res);
+      handleResponseSignup(data, res);
     } catch (e) {
       setErrorPopup(e as Error);
     }
