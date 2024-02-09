@@ -13,11 +13,7 @@ class AuthMethod {
     return (await fetcher.post('/auth/login', data)).data;
   }
   public async signup(data: SignupInput): Promise<SignupOutput> {
-    return (
-      await fetcher.post('/auth/signup', data, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      })
-    ).data;
+    return (await fetcher.post('/auth/signup', data)).data;
   }
   public async forgotPassword(
     data: ForgotPasswordInput,
