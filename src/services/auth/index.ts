@@ -1,4 +1,4 @@
-import {Auth as AuthApi} from "@/api";
+import { Auth as AuthApi } from '@/api';
 import { ForgotPasswordInput, LoginInput, SignupInput, User } from '@/types';
 import FieldValidator from '@/utils/FieldValidator';
 
@@ -27,7 +27,7 @@ class Auth {
   }
 
   async sendForgotPasswordCode(contact: string): Promise<string> {
-    if(FieldValidator.isEmail(contact)){
+    if (FieldValidator.isEmail(contact)) {
       // TODO: do something here
     }
     throw new Error('Provided value is not an email');
