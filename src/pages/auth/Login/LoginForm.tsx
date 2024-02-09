@@ -1,17 +1,20 @@
 import { Button, TextField } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import pageRoutes from '@/pages/@pageRoutes';
 import auth from '@/services/auth';
 import { useErrorPopup } from '@/hooks';
 import { parseInputValue } from './validator';
+import Token from '@/core/token';
 import { LoginInput, LoginOutput } from '@/types';
 
 const LoginForm = () => {
+  const nav = useNavigate();
   const [errorNode, setError] = useErrorPopup();
 
   const handleLoginResponse = (response: LoginOutput) => {
-    console.log(response); // TODO: handle the response data
+    Token.set(response.token);
+    nav(pageRoutes.home);
   };
 
   const handleDataToSend = async (data: LoginInput) => {
