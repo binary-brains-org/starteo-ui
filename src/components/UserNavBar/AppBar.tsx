@@ -6,8 +6,10 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import {DrowerType} from "./Drawer";
 
-export default function MenuAppBar() {
+
+export default function MenuAppBar({Drawer} : {Drawer:DrowerType}) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -17,26 +19,14 @@ export default function MenuAppBar() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
-          >
+            sx={{ mr: 2 }}>
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Photos
           </Typography>
           <div>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={() => {
-                console.log('hello world');
-              }}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
+            <Drawer />
           </div>
         </Toolbar>
       </AppBar>
