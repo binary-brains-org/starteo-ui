@@ -4,7 +4,7 @@ import { Edit, Logout, MoneySharp, PlusOne } from "@mui/icons-material";
 
 const Aside = () => {
   return (
-    <div className="p-2 h-full">
+    <div className="p-2 h-full sticky top-0">
       <Paper elevation={4} sx={styles.paper}>
         <div>
           <div className="p-3 center-flex gap-3">
