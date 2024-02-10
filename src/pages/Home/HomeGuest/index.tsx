@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 const HomeGuest = () => {
   return (
-    <div className="w-full">
+    <div className="w-full bg-gradient-to-r from-cyan-600 to-blue-700">
       <Header />
       <HelloSection />
       <section className="py-[5rem] flex flex-col">

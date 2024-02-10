@@ -1,10 +1,11 @@
 import { TypeAnimation } from 'react-type-animation';
 import appProperty from '@/configuration/appProperty';
 import { Button } from '@mui/material';
+import BackgroundSvg from '../../../assets/background.svg';
 
 const HelloSection = () => {
   return (
-    <section className="px-4 py-8 bg-[url('/square-case.svg')] bg-center flex justify-between w-full mb-5">
+    <section className="px-4 py-8 bg-[url('/square-case.svg')] flex justify-between w-full mb-5">
       <div className="p-5 flex flex-col gap-5 items-start w-full">
         <div className="flex flex-col">
           <TypeAnimation
@@ -15,7 +16,7 @@ const HelloSection = () => {
               4000,
             ]}
             wrapper="h2"
-            className="text-5xl font-bold font-Roboto after:text-primary"
+            className="text-5xl mt-[5rem] font-bold font-Roboto after:text-primary"
             repeat={Infinity}
           />
           <h3 className="text-3xl font-Quicksand font-semibold">
@@ -27,8 +28,9 @@ const HelloSection = () => {
       </div>
 
       <div className="relative w-full flex h-full">
-        <div className="w-[10rem] h-[10rem] bg-black rounded-full flex absolute right-0 top-[5rem]">
-          <div className="w-[4rem] h-[4rem] bg-black rounded-full absolute top-[-1rem] left-[-1rem]"></div>
+        <img src={BackgroundSvg} className="blur-md max-h-300" alt="" />
+        <div className="w-[10rem] h-[10rem] bg-gradient-to-r from-indigo-500 rounded-full flex absolute right-0 top-[8rem]">
+          <div className="w-[4rem] h-[4rem] bg-gradient-to-r from-indigo-500 rounded-full absolute top-[-6rem] left-[-5rem]"></div>
         </div>
       </div>
     </section>

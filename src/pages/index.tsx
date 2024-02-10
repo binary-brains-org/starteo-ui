@@ -5,6 +5,7 @@ import { PageNotFound, Ping } from '@/layout';
 import Home from './Home';
 import Profile from './Profile';
 import { Login, Signup, ForgotPassword } from './auth';
+import ViewIdea from '@/pages/ViewIdea';
 
 const Pages = () => {
   return (
@@ -13,6 +14,7 @@ const Pages = () => {
         {/* Client pages */}
         <Route path={pageRoutes.home} Component={Home} />
         <Route path={pageRoutes.profile} Component={Profile} />
+        <Route path={pageRoutes.viewIdea} Component={ViewIdea} />
 
         {/* Security example only using secureRoute */}
         <Route

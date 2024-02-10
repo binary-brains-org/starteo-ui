@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -13,14 +12,9 @@ import MailIcon from '@mui/icons-material/Mail';
 import { IconButton } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 
-interface propsType{
+interface propsType {}
 
-}
-
-export interface DrowerType extends React.FC<propsType>{
-  
-}
-
+export interface DrowerType extends React.FC<propsType> {}
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState(false);
