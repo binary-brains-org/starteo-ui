@@ -7,19 +7,26 @@ import { AppUses } from '@/components';
 
 const HomeUser = (): React.ReactElement => {
   const [Ideas, setIdeas] = useState<[IdeaType] | null>(null);
+  const [first, setFirst] = useState(false);
   useEffect(()=>{
     IdeasProvider.getIdeas(0,10).then((ideas:[IdeaType])=>{
       setIdeas(ideas)
-      console.log(ideas)
+      setFirst(true);
     }).catch((e)=>{
       console.log(e)
     });
-  },[])
+  },[first])
+
+  useEffect(() => {
+    setFirst(false);
+  }, [])
   return (
     <div>
       <MenuAppBar Drawer={TemporaryDrawer} />
       <div className="w-full h-[20rem] bg-orange-500"></div>
-      <Grid />
+      {
+       Ideas !== null ? <Grid Ideas={Ideas}/> : <>no data fetched</>
+      }
       <div className="py-8">
         <AppUses />
       </div>

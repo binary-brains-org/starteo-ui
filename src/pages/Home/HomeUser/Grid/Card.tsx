@@ -11,8 +11,10 @@ import { Money } from '@mui/icons-material';
 import Stylesheet from '@/utils/Stylesheet';
 import pageRoutes from '@/pages/@pageRoutes';
 import { Link } from 'react-router-dom';
+import { IdeaType } from '@/api/Ideas';
 
-const Card = () => {
+const Card = ({idea}:{idea:IdeaType}) => {
+  console.log(idea);
   return (
     <C elevation={5}>
       <CardContent sx={styles.cardContent}>
@@ -23,7 +25,7 @@ const Card = () => {
               username
             </span>
             <span className="leading-tight text-sm font-Quicksand">
-              email@gmail.com
+              {idea.founder}
             </span>
           </div>
         </div>
@@ -36,10 +38,10 @@ const Card = () => {
             </Image>
           </div>
           <Typography variant="h6" lineHeight={0.8}>
-            Idea
+            {idea.name}
           </Typography>
           <Typography variant="subtitle1" lineHeight={0.8}>
-            Description
+            {idea.description}
           </Typography>
         </div>
 
