@@ -1,16 +1,38 @@
-import { Suspense } from 'react';
+import { useEffect, useState } from 'react';
 import { PageLoading } from '@/layout';
 import HomeGuest from './HomeGuest';
 import HomeUser from './HomeUser';
-import { useAppContext } from '@/hooks';
+import auth from '@/services/auth';
+import { useErrorPopup } from '@/hooks';
 
 const Home = () => {
-  const { authenticated } = useAppContext();
+  const [isLoading, setLoading] = useState(true);
+  const [authenticated, setAuthenticated] = useState(false);
+  const [errorNode, setErrorNode] = useErrorPopup();
+
+  useEffect(() => {
+    if (isLoading) {
+      auth
+        .AuthenticationMethod()
+        .then(setAuthenticated)
+        .then(() => {
+          setLoading(false);
+        })
+        .catch(setErrorNode);
+    }
+  }, []);
 
   return (
-    <Suspense fallback={<PageLoading />}>
-      {authenticated ? <HomeUser /> : <HomeGuest />}
-    </Suspense>
+    <>
+      {isLoading ? (
+        <PageLoading />
+      ) : authenticated ? (
+        <HomeUser />
+      ) : (
+        <HomeGuest />
+      )}
+      {errorNode}
+    </>
   );
 };
 
