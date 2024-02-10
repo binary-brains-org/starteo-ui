@@ -1,4 +1,4 @@
-import Slider from './HomeCarousel/Slider';
+import SimpleSlider from './HomeCarousel/Slider';
 
 const HomeUser = () => {
   // Données à fournir pour la prop 'data'
@@ -6,7 +6,7 @@ const HomeUser = () => {
 
   return (
     <>
-      <Slider />
+      <SimpleSlider />
     </>
   );
 };

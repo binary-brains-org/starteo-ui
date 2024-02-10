@@ -6,7 +6,7 @@ import EndForm from './EndForm';
 import auth from '@/services/auth';
 import { useErrorPopup } from '@/hooks';
 import { Steps } from '@/components';
-import {SignupInput} from "@/types";
+import { SignupInput } from '@/types';
 
 const SignupForm = () => {
   const [nodeError, setErrorPopup] = useErrorPopup();

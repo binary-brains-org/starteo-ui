@@ -10,7 +10,6 @@ const Pages = () => {
   return (
     <Router>
       <Routes>
-        {/* Client pages */}
         <Route path={pageRoutes.home} Component={Home} />
         <Route path={pageRoutes.profile} Component={Profile} />
 
@@ -29,7 +28,6 @@ const Pages = () => {
         <Route path={pageRoutes.login} Component={Login} />
         <Route path={pageRoutes.signup} Component={Signup} />
         <Route path={pageRoutes.forgotPassword} Component={ForgotPassword} />
-
         {/* Unexpected pages */}
         <Route path="/ping" Component={Ping} />
         <Route path="*" Component={PageNotFound} />

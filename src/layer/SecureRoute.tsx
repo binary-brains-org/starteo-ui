@@ -46,11 +46,11 @@ const SecureRoute = (
           return authenticated;
         })
         .catch(setError);
-    }
+    };
 
     const [firstRender, setFirstRender] = useState(true);
     useEffect(() => {
-      if(isLoading && firstRender){
+      if (isLoading && firstRender) {
         setFirstRender(false);
         tryToAccess();
       }

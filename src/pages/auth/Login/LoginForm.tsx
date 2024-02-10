@@ -20,7 +20,7 @@ const LoginForm = () => {
         { password: data.password },
         parseInputValue(data.email),
       );
-      
+
       const result: LoginOutput = await auth.login(body);
       handleLoginResponse(result);
     } catch (e) {

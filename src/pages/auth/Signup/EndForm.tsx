@@ -18,7 +18,7 @@ const EndForm = ({ form, onPrevious }: Props) => {
   const [imageData, setImageData] = useState('');
 
   useEffect(() => {
-    if(firstRender){
+    if (firstRender) {
       setFirstRender(false);
       const files: FileList | undefined = form.getValues('image');
       if (files && files?.length > 0) {
