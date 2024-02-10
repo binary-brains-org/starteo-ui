@@ -3,11 +3,21 @@ import { Typography } from '@mui/material';
 
 const AppLogo = () => {
   return (
-    <Typography variant="body1" color="black" className="flex-all-center gap-2">
+    <Typography
+      variant="body1"
+      className="text-white"
+      style={{ textShadow: '0 4px 8px rgba(99, 102, 241, 0.5)' }}
+    >
       <AccountBox fontSize="large" />
-      <span className="font-primary font-Quicksand text-[2rem]">Start-eo</span>
+      <span
+        className="font-primary font-Quicksand text-[2rem]"
+        style={{ textShadow: '0 4px 8px rgba(99, 102, 241, 0.5)' }}
+      >
+        Start-eo
+      </span>
     </Typography>
   );
 };
 
 export default AppLogo;
+
