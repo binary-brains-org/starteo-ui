@@ -5,7 +5,7 @@ import Token from '@/core/token';
 class User {
   public static async whoami(): Promise<UserData> {
     return (
-      await fetcher.get('/whoami', {
+      await fetcher.get('/auth/whoami', {
         headers: {
           Authorization: 'Bearer ' + Token.get(),
         },
