@@ -4,7 +4,6 @@ import { Grid } from '@mui/material';
 import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
 import { Divider } from '@mui/material';
-import { ViewArray } from '@mui/icons-material';
 
 function Information() {
   const [open, setOpen] = useState(false);
@@ -26,7 +25,6 @@ function Information() {
         onClick={handleOpen}
       >
         View more
-        <ViewArray />
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <div className="p-5 bg-white rounded-lg shadow-lg max-w-md">
