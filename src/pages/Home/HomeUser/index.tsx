@@ -5,9 +5,9 @@ import React from 'react';
 const HomeUser = (): React.ReactElement => {
   return (
     <>
-      <MenuAppBar Drawer={TemporaryDrawer}/>
+      <MenuAppBar Drawer={TemporaryDrawer} />
     </>
-  )
+  );
 };
 
 export default HomeUser;

@@ -13,14 +13,9 @@ import MailIcon from '@mui/icons-material/Mail';
 import { IconButton } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 
-interface propsType{
+interface propsType {}
 
-}
-
-export interface DrowerType extends React.FC<propsType>{
-  
-}
-
+export interface DrowerType extends React.FC<propsType> {}
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState(false);

@@ -1,6 +1,7 @@
 import { TypeAnimation } from 'react-type-animation';
 import appProperty from '@/configuration/appProperty';
 import { Button } from '@mui/material';
+import LightBulb from '@/components/Lotties/LightBulb';
 
 const HelloSection = () => {
   return (
@@ -27,8 +28,8 @@ const HelloSection = () => {
       </div>
 
       <div className="relative w-full flex h-full">
-        <div className="w-[10rem] h-[10rem] bg-black rounded-full flex absolute right-0 top-[5rem]">
-          <div className="w-[4rem] h-[4rem] bg-black rounded-full absolute top-[-1rem] left-[-1rem]"></div>
+        <div className="w-[15rem] h-[15rem] absolute md:right-[9em] lg:right-[20em]">
+          <LightBulb />
         </div>
       </div>
     </section>

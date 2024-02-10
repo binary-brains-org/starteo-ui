@@ -10,7 +10,7 @@ class Auth {
   logout() {}
 
   async AuthenticationMethod(): Promise<boolean> {
-    return true;
+    return false;
   }
 
   async AuthorizationMethod(hasAnyRole: AvailableRoles[]): Promise<boolean> {
