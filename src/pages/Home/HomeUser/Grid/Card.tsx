@@ -13,7 +13,7 @@ import pageRoutes from '@/pages/@pageRoutes';
 import { Link } from 'react-router-dom';
 import { IdeaType } from '@/api/Ideas';
 
-const Card = ({idea}:{idea:IdeaType}) => {
+const Card = ({idea, user_id}:{idea:IdeaType, user_id:string}) => {
   console.log(idea);
   return (
     <C elevation={5}>
@@ -48,8 +48,8 @@ const Card = ({idea}:{idea:IdeaType}) => {
         <CardActions sx={styles.cardActions}>
           <Link
             to={pageRoutes.viewIdea
-              .replace(':user_id', 'dsds')
-              .replace(':idea_id', 'dsds')}
+              .replace(':user_id', user_id)
+              .replace(':idea_id', idea.id)}
           >
             <Button variant="outlined">View More</Button>
           </Link>

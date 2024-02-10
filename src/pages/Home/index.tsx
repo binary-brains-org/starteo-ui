@@ -4,30 +4,37 @@ import HomeGuest from './HomeGuest';
 import HomeUser from './HomeUser';
 import auth from '@/services/auth';
 import { useErrorPopup } from '@/hooks';
+import { User } from '@/types';
 
 const Home = () => {
   const [isLoading, setLoading] = useState(true);
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState<User | null>(null);
   const [errorNode, setErrorNode] = useErrorPopup();
+  const [first, setFirst] = useState(false);
 
   useEffect(() => {
-    if (isLoading) {
+    if (isLoading && !first) {
       auth
-        .AuthenticationMethod()
+        .getCurrentUser()
         .then(setAuthenticated)
         .then(() => {
           setLoading(false);
+          setFirst(true)
         })
-        .catch(setErrorNode);
+        .catch((e) => {
+          setErrorNode(e);
+          setFirst(true)
+          setLoading(true);
+        });
     }
-  }, []);
+  }, [first, true]);
 
   return (
     <>
       {isLoading ? (
         <PageLoading />
-      ) : authenticated ? (
-        <HomeUser />
+      ) : authenticated !== null ? (
+        <HomeUser user={authenticated} />
       ) : (
         <HomeGuest />
       )}

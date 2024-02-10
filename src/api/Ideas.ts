@@ -1,50 +1,42 @@
 import fetcher from "./fetcher";
 
+type donationStatus = "OPEN" | "CLOSE"
+
 export interface createIdeaType {
-    "name": "string",
-    "status": "OPEN",
-    "description": "string",
-    "founder": "person@gmail.com",
-    "image": "string"
+    "name": string,
+    "status": donationStatus,
+    "description": string,
+    "founder": string,
+    "image":File | null 
 }
 
 export interface CommentsIdeaType {
-    "id": "string",
-    "idea": {
-        "id": "string",
-        "name": "string",
-        "status": "OPEN",
-        "description": "string",
-        "founder": "person@gmail.com",
-        "image": "string",
-        "creationDatetime": "2024-02-10T06:59:13.696Z",
-        "updatedDatetime": "2024-02-10T06:59:13.696Z",
-        "currentFunds": 0
-    },
-    "content": "string",
+    "id": string,
+    "idea": IdeaType
+    "content": string,
     "user": {
-        "id": "string",
-        "firstname": "string",
-        "lastname": "string",
-        "email": "string"
+        "id": string,
+        "firstname": string,
+        "lastname": string,
+        "email": string
     }
 }
 
 export interface IdeaType {
-    "id": "string",
-    "name": "string",
-    "status": "OPEN",
-    "description": "string",
-    "founder": "person@gmail.com",
-    "image": "string",
-    "creationDatetime": "2024-02-10T06:54:37.287Z",
-    "updatedDatetime": "2024-02-10T06:54:37.287Z",
-    "currentFunds": 0
+    "id": string,
+    "name": string,
+    "status": donationStatus,
+    "description": string,
+    "founder": string,
+    "image": string,
+    "creationDatetime": string,
+    "updatedDatetime": string,
+    "currentFunds": number
 }
 
 export interface createCommentsIdea {
-    "userId": "string",
-    "content": "string"
+    "userId": string,
+    "content": string 
 }
 
 export class IdeasProvider {

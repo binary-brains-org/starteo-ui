@@ -6,7 +6,7 @@ type UrlParam = 'user_id' | 'idea_id';
 
 const ViewIdea = () => {
   const { user_id, idea_id } = useParams<Record<UrlParam, string>>();
-
+  
   return (
     <div>
       <BannerUser userId={user_id} />
