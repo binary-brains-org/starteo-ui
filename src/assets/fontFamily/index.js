@@ -4,7 +4,10 @@ const fontFamily = [
   'Roboto', // modern font
   'Quicksand', // rounded font
   'Sixtyfour', // trailing big font
+  'Pacifico',
+  'Protest Guerrilla',
   'sans-serif', // fallback font
+  'Protest Strike',
 ];
 
 const familyEntries = fontFamily.map((v) => [v, [v, 'sans-serif']]);

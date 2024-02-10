@@ -2,16 +2,25 @@ interface LoginInput {
   email: string;
   password: string;
 }
-interface LoginOutput {}
+interface LoginOutput {
+  email: string;
+  token: string;
+}
 
 interface SignupInput {
   firstname: string;
   lastname: string;
   email: string;
+  username: string;
   password: string;
   image?: FileList;
 }
-interface SignupOutput {}
+interface SignupOutput {
+  id: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+}
 
 interface ForgotPasswordInput {
   email: string;

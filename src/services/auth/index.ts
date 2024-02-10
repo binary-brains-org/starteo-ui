@@ -1,21 +1,24 @@
 import { Auth as AuthApi } from '@/api';
 import { ForgotPasswordInput, LoginInput, SignupInput, User } from '@/types';
 import FieldValidator from '@/utils/FieldValidator';
+import Token from '@/core/token';
+import UserApi from '@/api/User';
 
 class Auth {
   async getCurrentUser(): Promise<User> {
-    return {};
+    return UserApi.whoami();
   }
 
-  logout() {}
+  logout() {
+    Token.clear();
+  }
 
   async AuthenticationMethod(): Promise<boolean> {
-    return true;
+    return Token.get()?.trim().length > 0;
   }
 
   async AuthorizationMethod(hasAnyRole: AvailableRoles[]): Promise<boolean> {
-    console.log(hasAnyRole);
-    return false;
+    return true;
   }
 
   async login(data: LoginInput) {
@@ -28,7 +31,6 @@ class Auth {
 
   async sendForgotPasswordCode(contact: string): Promise<string> {
     if (FieldValidator.isEmail(contact)) {
-      // TODO: do something here
     }
     throw new Error('Provided value is not an email');
   }

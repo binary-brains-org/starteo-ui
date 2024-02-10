@@ -5,13 +5,19 @@ const AppLogo = () => {
   return (
     <Typography
       variant="body1"
-      color="primary"
-      className="flex-all-center gap-2"
+      className="text-white"
+      style={{ textShadow: '0 4px 8px rgba(99, 102, 241, 0.5)' }}
     >
       <AccountBox fontSize="large" />
-      <span className="font-bold font-Quicksand text-[2rem]">App logo</span>
+      <span
+        className="font-primary font-Quicksand text-[2rem]"
+        style={{ textShadow: '0 4px 8px rgba(99, 102, 241, 0.5)' }}
+      >
+        Start-eo
+      </span>
     </Typography>
   );
 };
 
 export default AppLogo;
+

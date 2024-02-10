@@ -17,12 +17,14 @@ const FirstForm = ({ form }: Props) => {
           error={!!form.formState.errors['lastname']?.message}
           label={form.formState.errors['lastname']?.message || 'Lastname'}
           {...form.register('lastname', { required: 'required value' })}
+          sx={{ backgroundColor: 'white', borderRadius: '16px' }}
         />
         <TextField
           fullWidth
           error={!!form.formState.errors['firstname']?.message}
           label={form.formState.errors['firstname']?.message || 'Firstname'}
           {...form.register('firstname', { required: 'required value' })}
+          sx={{ backgroundColor: 'white', borderRadius: '16px' }}
         />
       </div>
 
@@ -31,20 +33,25 @@ const FirstForm = ({ form }: Props) => {
         error={!!form.formState.errors['email']?.message}
         label={form.formState.errors['email']?.message || 'Email'}
         {...form.register('email', { required: 'required value' })}
+        sx={{ backgroundColor: 'white', borderRadius: '16px' }}
       />
 
       <div className="flex items-center justify-between">
-        <Button variant="contained" type="submit">
+        <Button
+          variant="contained"
+          type="submit"
+          className="bg-gradient-to-br from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 focus:ring-4 focus:ring-blue-300 text-white font-bold"
+        >
           Next
         </Button>
 
         <span className="flex-all-center gap-1">
-          <span className="font-Montserrat text-center">
+          <span className="font-Montserrat text-center text-white">
             already have an account ?&nbsp;
           </span>
           <Link
             to={pageRoutes.login}
-            className="font-Quicksand text-md font-bold hover:underline hover:text-blue-700"
+            className="font-Quicksand text-md font-bold hover:underline hover:text-blue-700 text-white"
           >
             Login
           </Link>
@@ -55,3 +62,4 @@ const FirstForm = ({ form }: Props) => {
 };
 
 export default FirstForm;
+

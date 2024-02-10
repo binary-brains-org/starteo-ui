@@ -6,7 +6,7 @@ import { AppLogo } from '@/components';
 
 const Header = () => {
   return (
-    <header className="w-full flex items-center justify-between p-2">
+    <header className="w-full flex items-center  justify-between">
       <Link to={pageRoutes.home} className="scale-[.9]">
         <AppLogo />
       </Link>
@@ -14,7 +14,7 @@ const Header = () => {
       <div className="px-3 flex-all-center gap-5">
         <Button
           to={pageRoutes.login}
-          variant="outlined"
+          variant="contained"
           component={Link}
           startIcon={<LoginOutlined />}
         >

@@ -1,16 +1,17 @@
-import { Suspense } from 'react';
+import { useEffect, useState } from 'react';
 import { PageLoading } from '@/layout';
 import HomeGuest from './HomeGuest';
 import HomeUser from './HomeUser';
-import { useAppContext } from '@/hooks';
+import auth from '@/services/auth';
+import { useErrorPopup } from '@/hooks';
+import { User } from '@/types';
 
 const Home = () => {
-  const { authenticated } = useAppContext();
 
   return (
-    <Suspense fallback={<PageLoading />}>
-      {authenticated ? <HomeUser /> : <HomeGuest />}
-    </Suspense>
+    <>
+      <HomeGuest />
+    </>
   );
 };
 

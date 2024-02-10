@@ -38,12 +38,12 @@ const PasteCode = ({ form, onResend, code }: Props) => {
         label={form.formState.errors['code']?.message || 'Paste the code here'}
         {...form.register('code', {
           required: 'This field is required',
-          validate(v) {
+          validate(v){
             if (v === code) {
               return true;
             }
             return 'Invalid code';
-          },
+          }
         })}
       />
 

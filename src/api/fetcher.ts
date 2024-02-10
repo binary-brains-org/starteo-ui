@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
-const baseURL: string = 'https://backend.com'; // TODO: change it
+const baseURL: string = import.meta.env.VITE_BASE_URL || '';
 
 const fetcher: AxiosInstance = axios.create({
   baseURL,
