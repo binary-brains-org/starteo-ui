@@ -5,6 +5,7 @@ const fontFamily = [
   'Quicksand', // rounded font
   'Sixtyfour', // trailing big font
   'Pacifico',
+  'Protest Guerrilla',
   'sans-serif', // fallback font
 ];
 
