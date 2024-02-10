@@ -17,12 +17,14 @@ const FirstForm = ({ form }: Props) => {
           error={!!form.formState.errors['lastname']?.message}
           label={form.formState.errors['lastname']?.message || 'Lastname'}
           {...form.register('lastname', { required: 'required value' })}
+          sx={{ backgroundColor: 'white', borderRadius: '16px' }}
         />
         <TextField
           fullWidth
           error={!!form.formState.errors['firstname']?.message}
           label={form.formState.errors['firstname']?.message || 'Firstname'}
           {...form.register('firstname', { required: 'required value' })}
+          sx={{ backgroundColor: 'white', borderRadius: '16px' }}
         />
       </div>
 
@@ -31,6 +33,7 @@ const FirstForm = ({ form }: Props) => {
         error={!!form.formState.errors['email']?.message}
         label={form.formState.errors['email']?.message || 'Email'}
         {...form.register('email', { required: 'required value' })}
+        sx={{ backgroundColor: 'white', borderRadius: '16px' }}
       />
 
       <div className="flex items-center justify-between">

@@ -9,6 +9,8 @@ import {
 import Image from '@/components/Image';
 import { Money } from '@mui/icons-material';
 import Stylesheet from '@/utils/Stylesheet';
+import pageRoutes from '@/pages/@pageRoutes';
+import { Link } from 'react-router-dom';
 
 const Card = () => {
   return (
@@ -42,7 +44,13 @@ const Card = () => {
         </div>
 
         <CardActions sx={styles.cardActions}>
-          <Button variant="outlined">View More</Button>
+          <Link
+            to={pageRoutes.viewIdea
+              .replace(':user_id', 'dsds')
+              .replace(':idea_id', 'dsds')}
+          >
+            <Button variant="outlined">View More</Button>
+          </Link>
 
           <span>5 days ago</span>
         </CardActions>

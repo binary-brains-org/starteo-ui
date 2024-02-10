@@ -8,7 +8,10 @@ const config = {
   darkMode: 'class',
   theme: {
     extend: {
-      fontFamily: MakeFamily,
+      fontFamily: {
+        primary: ['Protest Strike'],
+        ...MakeFamily,
+      },
       animation: {
         fade: 'fade-show linear 0.5s 1 0.1s normal forwards',
       },

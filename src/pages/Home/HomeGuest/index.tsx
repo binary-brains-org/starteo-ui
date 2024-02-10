@@ -7,7 +7,7 @@ import Sparkles from '@/components/Lotties/Sparkles';
 
 const HomeGuest = () => {
   return (
-    <div className="w-full">
+    <div className="w-full bg-gradient-to-r from-cyan-600 to-blue-700">
       <Header />
       <HelloSection />
       <section className="py-[4rem] flex flex-col bg-gray-200">

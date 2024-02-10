@@ -14,7 +14,7 @@ class Auth {
   }
 
   async AuthenticationMethod(): Promise<boolean> {
-    return Token.get().trim().length > 0;
+    return Token.get()?.trim().length > 0;
   }
 
   async AuthorizationMethod(hasAnyRole: AvailableRoles[]): Promise<boolean> {
