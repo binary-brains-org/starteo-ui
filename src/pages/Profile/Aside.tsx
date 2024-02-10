@@ -2,21 +2,25 @@ import { Button, Input, List, ListItem, ListItemIcon, ListItemText, Paper, TextF
 import Stylesheet from "@/utils/Stylesheet";
 import { Edit, Logout, MoneySharp, PlusOne } from "@mui/icons-material";
 import BasicModal from "@/components/modal/Modals";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { IdeasProvider, createIdeaType } from "@/api/Ideas";
+import auth from "@/services/auth";
 
-const Aside = ({founder:string}) => {
+const Aside = () => {
+  const [founder, setFounder] = useState<createIdeaType>({} as createIdeaType)
   const { register, handleSubmit } = useForm<createIdeaType>({
-    defaultValues: {
-      image: null,
-      description: "",
-      status:"OPEN",
-      founder:founder, 
-      name: ""
-    }
+    defaultValues: founder
   });
+
   const file = useRef(null);
+
+  useEffect(() => {
+    auth.getCurrentUser().then(({email}) => {
+      setFounder({founder: email, name: '', description: '', image: null, status: 'OPEN'});
+    });
+  }, []);
+
   const handleClick = (data: createIdeaType) => {
     IdeasProvider.createIdea(data).then((value) => {
       console.log(value);
