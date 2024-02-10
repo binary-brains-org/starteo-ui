@@ -7,7 +7,12 @@ const AppLogo = () => {
       color="primary"
       className="flex-all-center gap-2"
     >
-      <span className="font-bold font-Pacifico text-[2rem]">Starte-o</span>
+      <span
+        className="font-bold text-[2.5rem]"
+        style={{ fontFamily: 'Protest Guerrilla' }}
+      >
+        Start-eo
+      </span>
     </Typography>
   );
 };
