@@ -14,7 +14,7 @@ const LoginForm = () => {
 
   const handleLoginResponse = (response: LoginOutput) => {
     Token.set(response.token);
-    nav(pageRoutes.home);
+    nav(pageRoutes.homeUser);
   };
 
   const handleDataToSend = async (data: LoginInput) => {
