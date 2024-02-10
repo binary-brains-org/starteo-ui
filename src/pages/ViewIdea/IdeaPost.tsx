@@ -1,8 +1,13 @@
-import { Avatar, Paper, Typography } from '@mui/material';
+import { Avatar, Paper, Skeleton, Typography } from "@mui/material";
 import Image from '@/components/Image';
 import InputComment from '@/pages/ViewIdea/InputComment';
+import { IdeaType } from "@/api/Ideas";
 
-const IdeaPost = () => {
+interface Props {
+  idea: IdeaType | null;
+}
+
+const IdeaPost = ({idea}: Props) => {
   return (
     <div className="flex justify-center gap-5">
       <Paper elevation={5} sx={{ borderRadius: '1rem' }}>
@@ -10,11 +15,11 @@ const IdeaPost = () => {
           <Avatar>U</Avatar>
           <div className="flex flex-col">
             <span className="leading-tight font-bold">Username</span>
-            <span className="leading-tight">email@gmail.com</span>
+            <span className="leading-tight">{idea?.founder}</span>
           </div>
         </div>
         <div className="w-[25rem] flex bg-zinc-300 h-[25rem]">
-          <Image src="">
+          <Image src={"data:image/png;base64," + idea?.image}>
             <div className="w-full bg-zinc-300"></div>
           </Image>
         </div>
@@ -23,10 +28,10 @@ const IdeaPost = () => {
       <div className="p-4 max-w-[30%] flex gap-3 flex-col relative">
         <div>
           <Typography variant="h3" fontWeight="bold">
-            Idea name
+            {idea?.name || <Skeleton />}
           </Typography>
           <Typography variant="h6" fontWeight="bold">
-            a long idea description describing what the user try to do
+            {idea?.description || <Skeleton />}
           </Typography>
         </div>
 

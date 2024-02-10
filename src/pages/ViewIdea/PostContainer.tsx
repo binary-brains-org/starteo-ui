@@ -1,10 +1,15 @@
 import IdeaPost from '@/pages/ViewIdea/IdeaPost';
 import { AppUses } from '@/components';
+import { IdeaType } from "@/api/Ideas";
 
-const PostContainer = () => {
+interface Props {
+  idea: IdeaType | null;
+}
+
+const PostContainer = ({idea}: Props) => {
   return (
     <div className="flex flex-col gap-10">
-      <IdeaPost />
+      <IdeaPost idea={idea} />
       <AppUses />
     </div>
   );

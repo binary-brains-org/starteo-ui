@@ -23,7 +23,6 @@ const HomeUser = (): React.ReactElement => {
   return (
     <div>
       <MenuAppBar Drawer={TemporaryDrawer} />
-      <div className="w-full h-[20rem] bg-orange-500"></div>
       {
        Ideas !== null ? <Grid Ideas={Ideas}/> : <>no data fetched</>
       }

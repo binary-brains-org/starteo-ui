@@ -31,7 +31,7 @@ const SignupForm = () => {
         Token.set(v.token);
       })
       .then(() => {
-        nav(pageRoutes.home);
+        nav(pageRoutes.homeUser);
       })
       .catch(setErrorPopup);
   };

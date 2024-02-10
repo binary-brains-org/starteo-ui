@@ -14,7 +14,6 @@ import { Link } from 'react-router-dom';
 import { IdeaType } from '@/api/Ideas';
 
 const Card = ({idea}:{idea:IdeaType}) => {
-  console.log(idea);
   return (
     <C elevation={5}>
       <CardContent sx={styles.cardContent}>
@@ -32,7 +31,7 @@ const Card = ({idea}:{idea:IdeaType}) => {
 
         <div className="flex flex-col gap-2">
           <div className="w-full h-[14rem] bg-zinc-100 center-flex">
-            <Image src="" className="p-2 full-view">
+            <Image src={"data:image/png;base64," + idea?.image} className="p-2 w-full h-full">
               <Money />
               <span>Funding</span>
             </Image>
@@ -48,8 +47,8 @@ const Card = ({idea}:{idea:IdeaType}) => {
         <CardActions sx={styles.cardActions}>
           <Link
             to={pageRoutes.viewIdea
-              .replace(':user_id', 'dsds')
-              .replace(':idea_id', 'dsds')}
+              .replace(':user_id', 'fdf')
+              .replace(':idea_id', idea.id)}
           >
             <Button variant="outlined">View More</Button>
           </Link>
