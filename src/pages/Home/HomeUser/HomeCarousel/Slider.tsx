@@ -5,16 +5,23 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import Carousel from './Carousel';
 
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
-function App() {
-  const data = [{ date: new Date(), price: 0, description: 'coucou' }];
+function Slider() {
+  const data = [
+    {
+      date: new Date(),
+      price: 0,
+      description:
+        'Lorem Ipsum For anyone who having issues because they are inside the modules package',
+      user: 'Hello',
+    },
+  ];
   return (
     <div className="container">
-      <h1 className="heading">Flower Gallery</h1>
+      <h1 className="heading">Starteo</h1>
       <Swiper
         effect={'coverflow'}
         grabCursor={true}
@@ -24,7 +31,7 @@ function App() {
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
-          depth: 100,
+          depth: 1,
           modifier: 2.5,
         }}
         pagination={{ el: '.swiper-pagination', clickable: true }}
@@ -32,6 +39,8 @@ function App() {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         }}
+        modules={[EffectCoverflow, Pagination, Navigation]}
+        className="swiper_container"
       >
         <SwiperSlide>
           <Carousel data={data} />;
@@ -54,20 +63,9 @@ function App() {
         <SwiperSlide>
           <Carousel data={data} />;
         </SwiperSlide>
-
-        <div className="slider-controler">
-          <div className="swiper-button-prev slider-arrow">
-            <ArrowBackIcon />
-          </div>
-          <div className="swiper-button-next slider-arrow">
-            <ArrowForwardIcon />
-          </div>
-          <div className="swiper-pagination"></div>
-        </div>
       </Swiper>
     </div>
   );
 }
-
-export default App;
+export default Slider;
 
