@@ -2,13 +2,16 @@ import { Auth as AuthApi } from '@/api';
 import { ForgotPasswordInput, LoginInput, SignupInput, User } from '@/types';
 import FieldValidator from '@/utils/FieldValidator';
 import Token from '@/core/token';
+import UserApi from '@/api/User';
 
 class Auth {
   async getCurrentUser(): Promise<User> {
-    return {};
+    return UserApi.whoami();
   }
 
-  logout() {}
+  logout() {
+    Token.clear();
+  }
 
   async AuthenticationMethod(): Promise<boolean> {
     return Token.get().trim().length > 0;
