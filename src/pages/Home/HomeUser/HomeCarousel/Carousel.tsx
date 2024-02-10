@@ -8,7 +8,7 @@ type HomeProps = {
 
 const Carousel: FC<HomeProps> = ({ data }) => {
   return (
-    <Box className="flex justify-center flex-wrap">
+    <Box className="flex justify-center flex-wrap ">
       {data.map((x) => (
         <CardProfil item={x as ItemData} />
       ))}
