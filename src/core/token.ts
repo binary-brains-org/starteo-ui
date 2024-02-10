@@ -1,7 +1,7 @@
 import storage from './storage';
 
 class Token {
-  public static get() {
+  public static get(): string {
     return storage.local.get('user_token');
   }
 
