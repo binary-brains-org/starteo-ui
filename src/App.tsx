@@ -9,19 +9,14 @@ import { useErrorPopup } from './hooks';
 import Pages from './pages';
 
 const App = () => {
-  const [firstRender, setFirstRender] = useState(true);
   const [authenticated, setAuthenticated] = useState(false);
   const [errorNode, setErrorNode] = useErrorPopup();
 
   useEffect(() => {
-    if (firstRender) {
-      setFirstRender(false);
-
-      if (!authenticated) {
-        auth.AuthenticationMethod().then(setAuthenticated).catch(setErrorNode);
-      }
+    if (!authenticated) {
+      auth.AuthenticationMethod().then(setAuthenticated).catch(setErrorNode);
     }
-  }, [firstRender, authenticated, setErrorNode]);
+  }, [authenticated, setErrorNode]);
 
   const contextValue: AppContext = { authenticated } as AppContext;
   return (
