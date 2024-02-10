@@ -20,7 +20,6 @@ const Pages = () => {
         <Route path={pageRoutes.login} Component={Login} />
         <Route path={pageRoutes.signup} Component={Signup} />
         <Route path={pageRoutes.forgotPassword} Component={ForgotPassword} />
-
         <Route path="/ping" Component={Ping} />
         <Route path="*" Component={PageNotFound} />
       </Routes>

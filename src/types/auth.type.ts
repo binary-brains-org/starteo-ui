@@ -14,7 +14,6 @@ interface SignupInput {
   username: string;
   password: string;
   image?: FileList;
-  
 }
 interface SignupOutput {
   id: string;
