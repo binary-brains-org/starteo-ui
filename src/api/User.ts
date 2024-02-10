@@ -5,7 +5,7 @@ import Token from '@/core/token';
 class User {
   public static async setProfile(userId: string, data: any): Promise<UserData> {
     return (
-      await fetcher.post(`/${userId}/picture/raw`, data, {
+      await fetcher.post(`/users/${userId}/picture/raw`, data, {
         headers: {
           Authorization: 'Bearer ' + Token.get(),
         },
