@@ -1,6 +1,6 @@
-import { Forms as FormLottie } from '../components/Lotties';
 import { PropsWithChildren } from 'react';
 import { styled } from '@mui/material';
+import BusinessMan from '../assets/business_man.svg';
 
 const FormPage = ({ children }: PropsWithChildren) => {
   return (
@@ -14,7 +14,7 @@ const FormPage = ({ children }: PropsWithChildren) => {
         </CircleDetail>
 
         <div className="w-[90%] h-[90%] flex-all-center">
-          <FormLottie />
+          <img src={BusinessMan} alt="" />
         </div>
       </div>
 

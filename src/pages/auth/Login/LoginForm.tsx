@@ -35,12 +35,13 @@ const LoginForm = () => {
   return (
     <form
       onSubmit={form.handleSubmit(handleDataToSend)}
-      className="w-full flex flex-col gap-5 px-5"
+      className="w-full flex flex-col gap-5 px-5 "
     >
       <TextField
         error={!!form.formState.errors['email']?.message}
         {...form.register('email', { required: 'Required value' })}
         label={form.formState.errors['email']?.message || 'Email'}
+        sx={{ backgroundColor: 'white', borderRadius: '16px' }}
       />
 
       <TextField
@@ -48,6 +49,7 @@ const LoginForm = () => {
         error={!!form.formState.errors['email']?.message}
         label={form.formState.errors['email']?.message || 'password'}
         {...form.register('password', { required: 'Required value' })}
+        sx={{ backgroundColor: 'white', borderRadius: '16px' }}
       />
 
       <div className="flex items-center justify-between">
