@@ -13,8 +13,8 @@ interface Props {
 
 const CardProfil = ({ item: { description, user } }: Props) => {
   return (
-    <Box className="w-[200px] flex flex-col gap-1 rounded-2xl">
-      <Box className="h-[200px] bg-gray-700 rounded-xl"></Box>
+    <Box className="w-[600px] flex flex-col gap-1 rounded-2xl p-3">
+      <Box className="h-[300px] bg-gray-700 rounded-xl"></Box>
       <Box className="flex flex-col gap-16">
         <Box className="flex flex-row justify-between">
           <Box className="flex flex-col">
