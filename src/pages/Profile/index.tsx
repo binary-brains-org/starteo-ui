@@ -6,7 +6,7 @@ const Profile = () => {
   return (
     <div className="w-full h-screen flex flex-col">
       <Header />
-      <div className="flex w-full gap-1 h-full">
+      <div className="overflow-y-auto flex w-full gap-1 h-full">
         <Aside />
         <div className="flex w-full flex-col gap-4">
           <IdeaPost />
