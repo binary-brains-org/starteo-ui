@@ -7,6 +7,7 @@ interface FontFamily {
   Sixtyfour: string[];
   'sans-serif': string[];
   Pacifico: string[];
+  'Protest Guerrilla': [];
 }
 
 const MakeFamily: FontFamily;

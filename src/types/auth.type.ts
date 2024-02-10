@@ -15,7 +15,12 @@ interface SignupInput {
   password: string;
   image?: FileList;
 }
-interface SignupOutput {}
+interface SignupOutput {
+  id: string;
+  firstname: string;
+  lastname: string;
+  email: string;
+}
 
 interface ForgotPasswordInput {
   email: string;

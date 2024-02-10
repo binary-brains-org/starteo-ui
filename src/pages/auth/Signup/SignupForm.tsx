@@ -6,23 +6,40 @@ import EndForm from './EndForm';
 import auth from '@/services/auth';
 import { useErrorPopup } from '@/hooks';
 import { Steps } from '@/components';
-import { SignupInput } from '@/types';
+import { SignupInput, SignupOutput } from '@/types';
+import Token from '@/core/token';
+import pageRoutes from '@/pages/@pageRoutes';
+import { useNavigate } from 'react-router-dom';
+import User from '@/api/User';
 
 const SignupForm = () => {
+  const nav = useNavigate();
   const [nodeError, setErrorPopup] = useErrorPopup();
   const form = useForm<SignupInput>();
   const [step, setStep] = useState<0 | 1 | 2>(0);
 
-  const handleResponseSignup = (response: object) => {
-    // TODO: handle response data
-    console.log(response);
+  const handleResponseSignup = (data: SignupInput, response: SignupOutput) => {
+    auth
+      .login({ email: response.email, password: data.password })
+      .then(async (v) => {
+        if (data.image !== undefined && data.image?.length > 0) {
+          const d = await User.setProfile(response.id, {
+            file: data?.image?.item(0),
+          });
+          console.log(d);
+        }
+        Token.set(v.token);
+      })
+      .then(() => {
+        nav(pageRoutes.home);
+      })
+      .catch(setErrorPopup);
   };
 
   const handleDone = async (data: SignupInput) => {
     try {
-      const { image, ...d } = data;
-      const res = await auth.signup(d);
-      handleResponseSignup(res);
+      const res = await auth.signup(data);
+      handleResponseSignup(data, res);
     } catch (e) {
       setErrorPopup(e as Error);
     }
