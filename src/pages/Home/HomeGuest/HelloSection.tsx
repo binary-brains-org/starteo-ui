@@ -29,8 +29,8 @@ const HelloSection = () => {
 
       <div className="relative w-full flex h-full">
         <img src={BackgroundSvg} className="blur-md max-h-300" alt="" />
-        <div className="w-[10rem] h-[10rem] bg-gradient-to-r from-indigo-500 rounded-full flex absolute right-0 top-[8rem]">
-          <div className="w-[4rem] h-[4rem] bg-gradient-to-r from-indigo-500 rounded-full absolute top-[-6rem] left-[-5rem]"></div>
+        <div className="w-[15rem] h-[10rem] bg-gradient-to-r from-indigo-500 rounded-full flex absolute right-0 top-[9rem] left-[-6rem]">
+          <div className="w-[14rem] h-[4rem] bg-gradient-to-r from-indigo-500 rounded-full absolute top-[-7rem] left-[-15rem]"></div>
         </div>
       </div>
     </section>

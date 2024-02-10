@@ -4,7 +4,7 @@ import { Avatar } from "@mui/material";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center px-4 pt-3 sticky top-0">
+    <header className="flex justify-between items-center px-4 pt-3 sticky top-0 bg-white z-[200]">
       <AppLogo />
 
       <div className="center-flex gap-4">
