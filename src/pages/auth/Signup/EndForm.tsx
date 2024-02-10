@@ -104,6 +104,7 @@ const EndForm = ({ form, onPrevious }: Props) => {
               variant="outlined"
               component="label"
               htmlFor="image-profile"
+              sx={{ backgroundColor: 'white', borderRadius: '16px' }}
             >
               Upload an image
             </Button>
@@ -126,7 +127,7 @@ const EndForm = ({ form, onPrevious }: Props) => {
           Previous
         </Button>
 
-        <Button type="submit" variant="outlined">
+        <Button type="submit" variant="contained" >
           Done
         </Button>
       </div>
