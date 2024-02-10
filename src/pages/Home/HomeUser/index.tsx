@@ -36,7 +36,7 @@ const HomeUser = (): React.ReactElement => {
       <MenuAppBar Drawer={TemporaryDrawer} />
       <div className="w-full h-[20rem] bg-orange-500"></div>
       {
-        Ideas && authenticated ? <Grid Ideas={Ideas} user_id={authenticated.id} /> : <>no data fetched</>
+        (Ideas!==null && authenticated!==null) ? <Grid Ideas={Ideas} user_id={authenticated.id} /> : <>no data fetched</>
       }
       <div className="py-8">
         <AppUses />

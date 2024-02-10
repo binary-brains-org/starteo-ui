@@ -5,22 +5,16 @@ interface createFunds {
     "userId": string,
     "value": number
 }
-
-interface fundsResponse {
-    "id": string,
-    "idea": IdeaType,
-    "user": {
-      "id": "string",
-      "firstname": "string",
-      "lastname": "string",
-      "email": "string"
-    },
-    "value": 10000
-  }
-
 export class fundProvider{
-    static async createFunds(idea_id:string,user_id:string, value:number):Promise<fundsResponse> {
-        return fetcher.put(`/funds/${idea_id}?user_id=${user_id}&value=${value}`).then((res)=>{
+    static async createFunds(idea_id:string,user_id:string, value:number,token:string):Promise<any> {
+        return fetcher.put(`/funds/${idea_id}`,{
+            user_id:user_id,
+            value:value
+        },{
+            headers:{
+                Authorization:"Bearer "+token
+            }
+        }).then((res)=>{
             return res.data;
         }).catch((e)=>{
             throw e;

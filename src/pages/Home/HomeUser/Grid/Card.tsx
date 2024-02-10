@@ -32,7 +32,7 @@ const Card = ({idea, user_id}:{idea:IdeaType, user_id:string}) => {
 
         <div className="flex flex-col gap-2">
           <div className="w-full h-[14rem] bg-zinc-100 center-flex">
-            <Image src="" className="p-2 full-view">
+            <Image src={`data:image/png;base64,${idea.image}`}className="p-2 full-view">
               <Money />
               <span>Funding</span>
             </Image>

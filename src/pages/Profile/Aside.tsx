@@ -2,28 +2,42 @@ import { Button, Input, List, ListItem, ListItemIcon, ListItemText, Paper, TextF
 import Stylesheet from "@/utils/Stylesheet";
 import { Edit, Logout, MoneySharp, PlusOne } from "@mui/icons-material";
 import BasicModal from "@/components/modal/Modals";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { IdeasProvider, createIdeaType } from "@/api/Ideas";
+import auth from "@/services/auth";
+import { useNavigate } from "react-router-dom";
+import { User } from "@/types";
 
-const Aside = ({founder:string}) => {
+const Aside = () => {
+  
+  const [state,setState] = useState<User| null>(null);
   const { register, handleSubmit } = useForm<createIdeaType>({
     defaultValues: {
+      id:"zavatra afa",
       image: null,
       description: "",
       status:"OPEN",
-      founder:founder, 
+      founder:"coco@gmail.com", 
       name: ""
     }
   });
   const file = useRef(null);
   const handleClick = (data: createIdeaType) => {
-    IdeasProvider.createIdea(data).then((value) => {
+    data.founder = state?.email;
+    IdeasProvider.createIdea([data]).then((value) => {
       console.log(value);
     }).catch((e) => {
       throw e;
     })
   }
+  useEffect(()=>{
+    auth.getCurrentUser().then((user)=>{
+      setState(user);
+    }).catch((e)=>{
+      useNavigate()("/login")
+    })
+  },[])
   return (
     <div className="p-2 h-full sticky top-0">
       <Paper elevation={4} sx={styles.paper}>

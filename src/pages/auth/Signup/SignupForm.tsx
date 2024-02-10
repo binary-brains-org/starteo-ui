@@ -21,17 +21,15 @@ const SignupForm = () => {
   const handleResponseSignup = (data: SignupInput, response: SignupOutput) => {
     auth
       .login({ email: response.email, password: data.password })
-      .then(async (v) => {
+      .then((v) => {
         if (data.image !== undefined && data.image?.length > 0) {
-          const d = await User.setProfile(response.id, {
+          const d = User.setProfile(response.id, {
             file: data?.image?.item(0),
           });
           console.log(d);
         }
         Token.set(v.token);
-      })
-      .then(() => {
-        nav(pageRoutes.home);
+        nav(pageRoutes.homeUser);
       })
       .catch(setErrorPopup);
   };

@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import { Avatar, IconButton } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 import { User } from '@/types';
+import { useNavigate } from 'react-router-dom';
 
 interface propsType {
   user: User;
@@ -13,8 +14,9 @@ interface propsType {
 
 export interface DrowerType extends React.FC<propsType> { }
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer({user} : {user: User}) {
   const [state, setState] = React.useState(false);
+  const nav = useNavigate();
 
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -44,15 +46,17 @@ export default function TemporaryDrawer() {
         />
       </div>
       <div className='w-full flex-col flex border-2 boder-color-black py-3'>
-        <UserButton StartIcon={EditIcon}>
-          Edit Profile
+        <UserButton StartIcon={EditIcon} onClick={()=>{
+          nav("/profile");
+        }}>
+          Profile
         </UserButton>
       </div>
     </Box>
   );
-  const UserButton = ({children, StartIcon}:{children: String, StartIcon:any}) => {
+  const UserButton = ({children, StartIcon , onClick}:{children: String, StartIcon:any, onClick: any}) => {
     return(
-      <Button variant='outlined' sx={{width:"100%", padding:"10px", }} startIcon={<StartIcon/>}>{children}</Button>
+      <Button variant='outlined' sx={{width:"100%", padding:"10px", }} onClick={onClick} startIcon={<StartIcon/>}>{children}</Button>
     )
   }
   return (
