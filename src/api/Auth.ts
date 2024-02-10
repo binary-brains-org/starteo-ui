@@ -1,12 +1,12 @@
 import {
-  ForgotPasswordInput,
-  ForgotPasswordOutput,
   LoginInput,
   LoginOutput,
   SignupInput,
   SignupOutput,
+  User as UserData,
 } from '@/types';
 import fetcher from './fetcher';
+import Token from '@/core/token';
 
 class AuthMethod {
   public async login(data: LoginInput): Promise<LoginOutput> {
@@ -15,10 +15,15 @@ class AuthMethod {
   public async signup(data: SignupInput): Promise<SignupOutput> {
     return (await fetcher.post('/auth/signup', data)).data;
   }
-  public async forgotPassword(
-    data: ForgotPasswordInput,
-  ): Promise<ForgotPasswordOutput> {
-    return (await fetcher.post('/password/forgot', data)).data;
+
+  public static async whoami(): Promise<UserData> {
+    return (
+      await fetcher.get('/auth/whoami', {
+        headers: {
+          Authorization: 'Bearer ' + Token.get(),
+        },
+      })
+    ).data;
   }
 }
 
