@@ -12,8 +12,11 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { IconButton } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
+import { User } from '@/types';
 
-interface propsType {}
+interface propsType {
+  user: User;
+}
 
 export interface DrowerType extends React.FC<propsType> {}
 
@@ -33,38 +36,16 @@ export default function TemporaryDrawer() {
       setState(open);
     };
 
-  const list = () => (
+  const UserInformation= () => (
     <Box
       sx={{ width: 250 }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      <Box>
+
+      </Box>
     </Box>
   );
 
@@ -82,7 +63,7 @@ export default function TemporaryDrawer() {
           <AccountCircle />
         </IconButton>
         <Drawer anchor={'right'} open={state} onClose={toggleDrawer(false)}>
-          {list()}
+          <UserInformation />
         </Drawer>
       </React.Fragment>
     </div>
