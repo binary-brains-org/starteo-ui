@@ -1,70 +1,113 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-import './Slider.css';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { useRef } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { IconButton, Box } from '@mui/material';
+import { NavigateBefore, NavigateNext } from '@mui/icons-material';
 import Carousel from './Carousel';
-
-function Slider() {
+export default function SimpleSlider() {
   const data = [
-    {
-      date: new Date(),
-      price: 0,
-      description:
-        'Lorem Ipsum For anyone who having issues because they are inside the modules package',
-      user: 'Hello',
-    },
+    { date: new Date(), price: 0, description: 'Description', user: 'User' },
   ];
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+  const sliderRef = useRef<Slider>(null);
+
+  const goToPrev = () => {
+    sliderRef.current?.slickPrev();
+  };
+
+  const goToNext = () => {
+    sliderRef.current?.slickNext();
+  };
+
   return (
-    <div className="container">
-      <h1 className="heading">Starteo</h1>
-      <Swiper
-        effect={'coverflow'}
-        grabCursor={true}
-        centeredSlides={true}
-        loop={true}
-        slidesPerView={'auto'}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 1,
-          modifier: 2.5,
-        }}
-        pagination={{ el: '.swiper-pagination', clickable: true }}
-        navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }}
-        modules={[EffectCoverflow, Pagination, Navigation]}
-        className="swiper_container"
-      >
-        <SwiperSlide>
-          <Carousel data={data} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Carousel data={data} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Carousel data={data} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Carousel data={data} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Carousel data={data} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Carousel data={data} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Carousel data={data} />
-        </SwiperSlide>
-      </Swiper>
-    </div>
+    <Box className="w-100%">
+      <Slider {...settings} ref={sliderRef}>
+        <div>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="100%"
+          >
+            <Carousel data={data} />
+          </Box>
+        </div>
+        <div>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="100%"
+          >
+            <Carousel data={data} />
+          </Box>
+        </div>
+        <div>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="100%"
+          >
+            <Carousel data={data} />
+          </Box>
+        </div>
+        <div>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="100%"
+          >
+            <Carousel data={data} />
+          </Box>
+        </div>
+        <div>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="100%"
+          >
+            <Carousel data={data} />
+          </Box>
+        </div>
+        <div>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            height="100%"
+          >
+            <Carousel data={data} />
+          </Box>
+        </div>
+      </Slider>
+      <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <IconButton
+          onClick={goToPrev}
+          disabled={sliderRef.current?.innerSlider.state.currentSlide === 0}
+        >
+          <NavigateBefore />
+        </IconButton>
+        <IconButton
+          onClick={goToNext}
+          disabled={
+            sliderRef.current?.innerSlider.state.currentSlide ===
+            sliderRef.current?.innerSlider.state.slideCount - 1
+          }
+        >
+          <NavigateNext />
+        </IconButton>
+      </div>
+    </Box>
   );
 }
-export default Slider;
