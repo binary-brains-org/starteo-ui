@@ -30,25 +30,35 @@ class IdeaProvider {
     const search = new URLSearchParams();
     search.set('page', page.toString());
     search.set('page_size', pageSize.toString());
-    return (await fetcher.get(`/lastIdeas?${search.toString()}`, {
-      headers: { Authorization: Token.get() },
-    })).data;
+    return (
+      await fetcher.get(`/lastIdeas?${search.toString()}`, {
+        headers: { Authorization: Token.get() },
+      })
+    ).data;
   }
 
   public static async createOrUpdate(...data: CreateIdea[]) {
-    return (await fetcher.put('/ideas', data, {
-      headers: { Authorization: Token.get() },
-    })).data;
+    return (
+      await fetcher.put('/ideas', data, {
+        headers: { Authorization: Token.get() },
+      })
+    ).data;
   }
 
   public static async getCommentsIdea(ideaId: string) {
-    return (await fetcher.get(`/ideas/${encodeURIComponent(ideaId)}/comments`, {
-      headers: { Authorization: Token.get() },
-    })).data;
+    return (
+      await fetcher.get(`/ideas/${encodeURIComponent(ideaId)}/comments`, {
+        headers: { Authorization: Token.get() },
+      })
+    ).data;
   }
 
-  public static async setCommentOnIdea(ideaId: string){
-    return (await fetcher.put(`/ideas/${encodeURIComponent(ideaId)}/comments`, {}, {headers: {Authorization: Token.get()}}))
+  public static async setCommentOnIdea(ideaId: string) {
+    return await fetcher.put(
+      `/ideas/${encodeURIComponent(ideaId)}/comments`,
+      {},
+      { headers: { Authorization: Token.get() } },
+    );
   }
 }
 

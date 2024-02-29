@@ -45,8 +45,8 @@ const Header = () => {
 const styles = Stylesheet({
   avatar: {
     width: '3rem',
-    height: '3rem'
-  }
-})
+    height: '3rem',
+  },
+});
 
 export { Header };

@@ -3,7 +3,8 @@ import { Layers } from '@mui/icons-material';
 
 export const CaseAddProject = () => {
   return (
-    <div className="
+    <div
+      className="
       flex flex-col w-full text-end items-end text-white
       p-4 bg-gradient-to-bl from-african_violet-500
       to-gunmetal-700 rounded-xl shadow-xl"

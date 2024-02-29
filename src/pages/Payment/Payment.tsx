@@ -1,12 +1,7 @@
 import { UserPage } from '@/layout';
 
 const Payment = () => {
-  return (
-    <UserPage>
-    </UserPage>
-  );
-}
+  return <UserPage></UserPage>;
+};
 
-export {
-  Payment
-}
+export { Payment };

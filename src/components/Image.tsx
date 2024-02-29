@@ -1,6 +1,9 @@
 import { DetailedHTMLProps, ImgHTMLAttributes, useMemo, useState } from 'react';
 
-type ImageProps = Omit<DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>, 'alt' | 'onError'>;
+type ImageProps = Omit<
+  DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>,
+  'alt' | 'onError'
+>;
 
 const Image = ({ src, children, ...rest }: ImageProps): JSX.Element => {
   const [errorLoading, setErrorLoading] = useState(false);

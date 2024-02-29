@@ -10,14 +10,12 @@ const availableInNavs: string[] = [
   pageRoutes.home,
   pageRoutes.project,
   pageRoutes.funding,
-  pageRoutes.payments
+  pageRoutes.payments,
 ];
 
 export const Aside = () => {
   const { pathname } = useLocation();
-  const [current, setCurrent] = useState(
-    availableInNavs.indexOf(pathname)
-  );
+  const [current, setCurrent] = useState(availableInNavs.indexOf(pathname));
 
   const handleChange = (_: SyntheticEvent, newValue: number) => {
     setCurrent(newValue);

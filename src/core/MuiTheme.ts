@@ -7,10 +7,9 @@ const THEME_LIGHT: ThemeOptions = {
     primary: colors.maize,
     secondary: colors.gunmetal,
     error: colors.bittersweet,
-    info: colors.african_violet
-  }
+    info: colors.african_violet,
+  },
 };
-
 
 const THEME_DARK: ThemeOptions = {
   palette: {
@@ -18,8 +17,8 @@ const THEME_DARK: ThemeOptions = {
     primary: colors.maize,
     secondary: colors.gunmetal,
     error: colors.bittersweet,
-    info: colors.african_violet
-  }
+    info: colors.african_violet,
+  },
 };
 
 const MuiTheme = (mode: 'light' | 'dark'): Theme => {

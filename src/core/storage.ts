@@ -43,7 +43,9 @@ const setCookie = (
   { expiration_day = 5, path = '/' }: CookieOptions,
 ): void => {
   const expiration: Date = new Date();
-  expiration.setTime(expiration.getTime() + expiration_day * 24 * 60 * 60 * 1000);
+  expiration.setTime(
+    expiration.getTime() + expiration_day * 24 * 60 * 60 * 1000,
+  );
   document.cookie = `${name}=${value};expires=${expiration.toUTCString()};path=${path}`;
 };
 
@@ -69,5 +71,4 @@ const storage = {
   },
 };
 
-export { type CookieOptions };
-export default storage;
+export { type CookieOptions, storage };

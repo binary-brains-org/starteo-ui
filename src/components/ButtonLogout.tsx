@@ -7,8 +7,8 @@ export const ButtonLogout = () => {
       <span>Logout</span>
     </Button>
   );
-}
+};
 
 const styles = {
-  padding: '.6rem'
-}
+  padding: '.6rem',
+};

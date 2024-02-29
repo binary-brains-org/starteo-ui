@@ -32,7 +32,7 @@ const Home = () => {
       </div>
     </UserPage>
   );
-}
+};
 
 const styles = Stylesheet({
   scrollableSection: {
@@ -43,8 +43,6 @@ const styles = Stylesheet({
       display: 'none',
     },
   },
-})
+});
 
-export {
-  Home
-}
+export { Home };

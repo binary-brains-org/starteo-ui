@@ -1,4 +1,9 @@
-import { DetailedHTMLProps, HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
+import {
+  DetailedHTMLProps,
+  HTMLAttributes,
+  PropsWithChildren,
+  ReactNode,
+} from 'react';
 import { Box, styled, Typography } from '@mui/material';
 import { SxProps } from '@mui/system/styleFunctionSx';
 
@@ -8,9 +13,18 @@ interface Props {
   action?: ReactNode;
 }
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
 
-const Section = ({ title, children, containerSx: sx, action, ...rest }: PropsWithChildren<Props & DivProps>) => {
+const Section = ({
+  title,
+  children,
+  containerSx: sx,
+  action,
+  ...rest
+}: PropsWithChildren<Props & DivProps>) => {
   return (
     <Sct>
       <div className="flex items-center justify-between">
@@ -25,7 +39,7 @@ const Section = ({ title, children, containerSx: sx, action, ...rest }: PropsWit
 };
 
 const Sct = styled('section')({
-  paddingX: '.4rem'
+  paddingX: '.4rem',
 });
 
 export { Section };

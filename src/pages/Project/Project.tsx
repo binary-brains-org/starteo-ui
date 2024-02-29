@@ -1,12 +1,7 @@
 import { UserPage } from '@/layout';
 
 const Project = () => {
-  return (
-    <UserPage>
-    </UserPage>
-  );
-}
+  return <UserPage></UserPage>;
+};
 
-export {
-  Project
-}
+export { Project };

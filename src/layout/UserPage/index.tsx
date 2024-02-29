@@ -8,10 +8,8 @@ export const UserPage = ({ children }: PropsWithChildren) => {
       <Header />
       <Box marginTop="4rem" minHeight="calc(100vh - 4rem)" display="flex">
         <Aside />
-        <div className="w-full px-3 py-4 overflow-x-hidden">
-          { children }
-        </div>
+        <div className="w-full px-3 py-4 overflow-x-hidden">{children}</div>
       </Box>
     </div>
-  )
-}
+  );
+};
