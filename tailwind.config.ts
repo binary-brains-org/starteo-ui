@@ -1,4 +1,4 @@
-import { MakeFamily } from './src/assets/fontFamily';
+import { colors, MakeFamily } from '@/assets';
 
 const pathSrc = './src/**/*.{html,js,jsx,ts,tsx,css}';
 
@@ -8,6 +8,7 @@ const config = {
   darkMode: 'class',
   theme: {
     extend: {
+      colors,
       fontFamily: MakeFamily,
       animation: {
         fade: 'fade-show linear 0.5s 1 0.1s normal forwards',
