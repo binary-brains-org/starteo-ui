@@ -1,8 +1,8 @@
-import './assets/style.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './assets/style.css';
+import { appProperty } from './configuration';
 import App from './App';
-import appProperty from './configuration/appProperty';
 
 const title: HTMLTitleElement = document.querySelector('title')!;
 title.innerText = appProperty.name;
