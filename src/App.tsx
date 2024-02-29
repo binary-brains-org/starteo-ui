@@ -1,35 +1,28 @@
-import { useEffect, useState } from 'react';
 import { ThemeProvider } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import MuiTheme from './core/MuiTheme';
-import auth from './services/auth';
-import { AppContext, appContext } from './utils/appContext';
-import { useErrorPopup } from './hooks';
-import Pages from './pages';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { AppContext, appContext } from './core';
+import { MuiTheme } from './core';
+import { Home, Funding, Project, Payment } from '@/pages';
+import pageRoutes from '@/pageRoutes';
 
 const App = () => {
-  const [firstRender, setFirstRender] = useState(true);
-  const [authenticated, setAuthenticated] = useState(false);
-  const [errorNode, setErrorNode] = useErrorPopup();
-
-  useEffect(() => {
-    if (firstRender) {
-      setFirstRender(false);
-
-      if (!authenticated) {
-        auth.AuthenticationMethod().then(setAuthenticated).catch(setErrorNode);
-      }
-    }
-  }, [firstRender, authenticated, setErrorNode]);
-
-  const contextValue: AppContext = { authenticated } as AppContext;
+  const contextValue: AppContext = {} as AppContext;
   return (
-    <ThemeProvider theme={MuiTheme}>
+    <ThemeProvider theme={MuiTheme('light')}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <appContext.Provider value={contextValue}>
-          <Pages />
-          {errorNode}
+          <Router>
+            <Routes>
+              <Route path={pageRoutes.home} Component={Home} />
+              <Route path={pageRoutes.project} Component={Project} />
+              <Route path={pageRoutes.funding} Component={Funding} />
+              <Route path={pageRoutes.payments} Component={Payment} />
+
+              <Route path={pageRoutes.profile.path} Component={null} />
+            </Routes>
+          </Router>
         </appContext.Provider>
       </LocalizationProvider>
     </ThemeProvider>
