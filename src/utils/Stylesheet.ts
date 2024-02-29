@@ -8,4 +8,4 @@ const Stylesheet = <Styles extends Styling>(value: Styles): Styles => {
   return value;
 }
 
-export default Stylesheet;
+export { Stylesheet };
