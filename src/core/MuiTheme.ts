@@ -1,15 +1,29 @@
-import { createTheme, Theme } from '@mui/material';
-import fontFamily from '@/assets/fontFamily';
+import { createTheme, Theme, ThemeOptions } from '@mui/material';
+import { colors } from '@/assets';
 
-const MuiTheme: Theme = createTheme({
-  typography: {
-    fontFamily: fontFamily.join(', '),
-  },
+const THEME_LIGHT: ThemeOptions = {
   palette: {
-    secondary: {
-      main: '#0092ff',
-    },
-  },
-});
+    mode: 'light',
+    primary: colors.maize,
+    secondary: colors.gunmetal,
+    error: colors.bittersweet,
+    info: colors.african_violet
+  }
+};
 
-export default MuiTheme;
+
+const THEME_DARK: ThemeOptions = {
+  palette: {
+    mode: 'dark',
+    primary: colors.maize,
+    secondary: colors.gunmetal,
+    error: colors.bittersweet,
+    info: colors.african_violet
+  }
+};
+
+const MuiTheme = (mode: 'light' | 'dark'): Theme => {
+  return createTheme(mode === 'light' ? THEME_LIGHT : THEME_DARK);
+};
+
+export { MuiTheme };
