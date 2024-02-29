@@ -1,8 +1,6 @@
 import { createContext } from 'react';
 
-interface AppContext {
-  authenticated: boolean;
-}
+interface AppContext {}
 
 const appContext = createContext<AppContext>({} as AppContext);
 
